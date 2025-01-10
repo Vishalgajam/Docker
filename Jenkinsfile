@@ -4,21 +4,21 @@ pipeline {
     environment {
         registry = "vishalgajam/myimage" 
         registryCredential = 'dockertoken'
-        mavenHome  = tool 'myMaven'
-	PATH = "$mavenHome/bin:$PATH"
+        '''mavenHome  = tool 'myMaven'
+	PATH = "$mavenHome/bin:$PATH"'''
         
     }
    
     stages {   
        stage('Checkout') {
 			steps {
-				echo "$PATH"
+				'''echo "$PATH"'''
 				echo "$env.BUILD_NUMBER"
 				echo "$env.BUILD_ID"
 				echo "$env.JOB_NAME"
 				echo "$env.BUILD_TAG"
 				echo "$env.BUILD_URL"
-				sh "mvn --version"
+				'''sh "mvn --version"'''
 			}
 		}
        stage('Building our image') { 
